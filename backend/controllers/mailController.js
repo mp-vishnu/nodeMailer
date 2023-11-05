@@ -10,7 +10,7 @@ exports.sendMail = async (req, res) => {
         //email: user.email,
         email:"athulraj@weamse.in",
         subject: 'Confirmation mail',
-        message:`${user.name} registered to your app with ${user.email}`,
+        message:`Name : ${user.name} \nEmail : ${user.email}`,
       });
       res.status(200).json({
         success: true,
@@ -20,8 +20,8 @@ exports.sendMail = async (req, res) => {
      console.log(error);
     }}
 
+  
     exports.testConnection = async (req, res) => {
-
       
           res.status(200).json({
             success: true,

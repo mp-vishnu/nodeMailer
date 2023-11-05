@@ -1,15 +1,14 @@
 import React,{useState} from 'react'
 import '../App.css';
 const Home = () => {
-  
   const [user,setUser]=useState({
     name:"",email:""
   });
 
   let name,value;
   const handleChange=(e)=>{
-      name=e.target.name;
-      value=e.target.value;
+      name=e.target.name;//email
+      value=e.target.value;//val
 
       setUser({...user,[name]:value});
   };
@@ -36,15 +35,12 @@ const Home = () => {
     
     if(res.status===200)
     {   
-      const data=await res.json();
-      console.log("data------",data);
-      console.log("data------",data.status);
-        window.alert('mail send successfully');
-        console.log("done");
+      //const data=await res.json();
+      //console.log(data.success);
+      alert('mail send successfully');
     }
     else{
-      window.alert('not send');
-      console.log("not send");
+      alert('not send');
     }
   };
  
