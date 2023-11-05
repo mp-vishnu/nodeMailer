@@ -3,8 +3,9 @@ const app = express();
 app.use(express.json());
 
 //route imports
-const mail=require("./routes/mailRouter");
+ const mail=require("./routes/mailRouter");
 
-app.use("/",mail);
+ app.use("/",mail);
+
 
 module.exports = app;

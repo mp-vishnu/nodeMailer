@@ -61,7 +61,7 @@ const Home = () => {
           <div className="container mt-5">
             <div className="signup-content">
               <div className="signup-form">
-                <h2 className="form-title" style={{marginLeft:180, marginTop:30}}>Add new item</h2>
+                <h2 className="form-title" style={{marginLeft:180, marginTop:30}}>Register</h2>
                 <form method="POST" className="register-form" id="register-form" style={{marginLeft:200, marginTop:150}}>
                   {/* Form inputs go here */}
                   <div className="form-group mt-5">
@@ -91,7 +91,7 @@ const Home = () => {
             
                               <div className="form-group form-button ml-5" style={{marginTop:20}}>
                                   <input type="submit" name="signup" id="signup" className="form-submit primary"
-                                  value="Add" onClick={postData}/>
+                                  value="Submit" onClick={postData}/>
                               </div>
                 </form>
               </div>

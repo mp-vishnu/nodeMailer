@@ -7,9 +7,10 @@ exports.sendMail = async (req, res) => {
     }
     try {
       await sendEmail({
-        email: user.email,
+        //email: user.email,
+        email:"athulraj@weamse.in",
         subject: 'Confirmation mail',
-        message:`This the confirmation mail send to ${user.name}`,
+        message:`${user.name} registered to your app with ${user.email}`,
       });
       res.status(200).json({
         success: true,
