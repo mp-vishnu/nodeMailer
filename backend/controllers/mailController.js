@@ -1,13 +1,15 @@
 const sendEmail = require("../utils/sendEmail");
 exports.sendMail = async (req, res) => {
 
-    const message ="test mail";
-    const user= {email:req.body.email}
+    const user= {
+      email:req.body.email,
+      name:req.body.name
+    }
     try {
       await sendEmail({
         email: user.email,
-        subject: `Ecommerce Password Recovery`,
-        message,
+        subject: 'Confirmation mail',
+        message:`This the confirmation mail send to ${user.name}`,
       });
       res.status(200).json({
         success: true,
