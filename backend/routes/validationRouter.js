@@ -1,10 +1,12 @@
 const express = require("express");
 const {
-    testValidation
+    nameValidation,
+    emailValidation
 }=require("../controllers/validationController");
 
 const router = express.Router();
 
-router.route("/validation").post(testValidation);
+router.route("/validation1").post(nameValidation);
+router.route("/validation2").post(emailValidation);
 
 module.exports = router;
