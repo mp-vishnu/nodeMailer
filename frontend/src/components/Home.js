@@ -4,7 +4,7 @@ const Home = () => {
   const [user,setUser]=useState({
     name:"",email:""
   });
-
+  const [flag,setFlag]=useState(null);
   let name,value;
   const handleChange=(e)=>{
       name=e.target.name;//email
@@ -17,13 +17,13 @@ const Home = () => {
     e.preventDefault();
     
     const {name,email}=user;
-    if(!name||!email)
-        {
-          alert('Please fill in all fields');
-          return;
-        }
-      
-    const res=await fetch('/email',{
+    // if(!name||!email)
+    //     {
+    //       //alert('Please fill in all fields');
+    //       setFlag(1);
+    //       return;
+    //     }
+    const res=await fetch('/validation',{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -32,18 +32,36 @@ const Home = () => {
         name,email
       })
     });
-    
+
     if(res.status===200)
-    {   
-      //const data=await res.json();
-      //console.log(data.success);
-      alert('mail send successfully');
+    {
+      const res=await fetch('/email',{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          name,email
+        })
+      });
+     
+      if(res.status===200)
+      {   
+        //const data=await res.json();
+        //console.log(data.success);
+        alert('mail send successfully');
+      }
+      else{
+        alert('not send');
+        //setFlag(1);
+      }
     }
-    else{
-      alert('not send');
-    }
-  };
- 
+
+    else
+    {
+      setFlag(1);
+    }  
+  }
   return (      
     <div className="container">
     <div className="row ml-5">
@@ -84,6 +102,9 @@ const Home = () => {
                                       />
                                   </div>
                                   
+                                  <div>
+                                   { flag ===1 &&<p>Fill all fields</p>}
+                                  </div>
             
                               <div className="form-group form-button ml-5" style={{marginTop:20}}>
                                   <input type="submit" name="signup" id="signup" className="form-submit primary"
@@ -101,3 +122,7 @@ const Home = () => {
 }
 
 export default Home
+
+
+
+   
