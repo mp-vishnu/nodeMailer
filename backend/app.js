@@ -4,8 +4,8 @@ app.use(express.json());
 
 //route imports
  const mail=require("./routes/mailRouter");
- const validate=require('./routes/validationRouter');
-
+ //const validate=require('./routes/validationRouter');
+ const validate=require('./routes/formRouter');
  app.use("/",mail);
  app.use("/",validate);
 
